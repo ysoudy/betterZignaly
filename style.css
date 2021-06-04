@@ -17,6 +17,7 @@ img.headerLogo{
 }
 
 .symbol,
+.balanceBox,
 #userpilot-resource-centre-frame{
 	display:none;
 }
@@ -44,11 +45,10 @@ img.headerLogo{
 
 .jss59,
 .jss269,
-.jss14,
 .jss236,
+.positionsTabs,
 .MuiPaper-root-83,
 .jss402,
-.jss10,
 .MuiPaper-root-48,
 .customFilters{
     background-color: rgb(31, 31, 31)!important;

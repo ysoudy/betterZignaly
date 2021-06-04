@@ -1,5 +1,6 @@
 .textPurple,
 .title,
+.link,
 .tabsMenu button.selected,
 .dashboardHeader .titleBox .exchangeTitle {
     color: #03A9F4!important;
@@ -30,10 +31,6 @@ img.headerLogo{
     border-bottom: 2px solid #03A9F4;
 }
 
-
-    background-color: rgb(27, 27, 27)!important;
-}
-
 .jss1 {
     background-color: rgb(21, 21, 21)!important;
 }
@@ -49,7 +46,11 @@ img.headerLogo{
 .positionsTabs,
 .MuiPaper-root-83,
 .jss402,
+.balanceTabs,
 .MuiPaper-root-48,
+.customTable > div,
+table[role=grid] th,
+table[role=grid] tr,
 .customFilters{
     background-color: rgb(31, 31, 31)!important;
 }

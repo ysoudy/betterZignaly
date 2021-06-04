@@ -7,10 +7,11 @@ function zigGetUSDT(obj){
 		obj.innerHTML='<font style=font-weight:normal;color:gray>0</font>';
 	} else {
 		amount_eur=Math.round(100*usdt*amount_usdt)/100;
-			obj.innerHTML='<b style="color:#03A9F4">'+amount_eur+'€</b> ~ <font style="font-weight:normal">'+obj.innerHTML+'</i>';
+			obj.innerHTML=amount_eur+'<b style=font-weight:normal;margin-left:4px;color:#E2AF00>€</b> ~ <font style="font-weight:normal">'+obj.innerHTML+'</font><b style=font-weight:normal;margin-left:4px;color:#26A17B>Ŧ</b>';
 		}
 	}
 }
+
 function zigAddEURHTML(k){
 	switch(window.location.href){
 		case "https://zignaly.com/app/dashboard/balance":
@@ -53,7 +54,7 @@ function zigAddEURHTML(k){
 					}
 				}
 				
-				for(i=1;i<tabs.length;i++){
+				for(i=0;i<tabs.length;i++){
 					if(tabs[i].innerHTML=="DATE"){
 						if(tabs[i+1].innerHTML.indexOf('</b>')<0){
 							if(usdt_days.length>1) {
@@ -89,6 +90,12 @@ function zigAddEURHTML(k){
 						}
 					}
 				}
+				
+				
+				fonts=document.querySelectorAll('font');
+				for(i=0;i<fonts.length;i++){
+					fonts[i].innerHTML=fonts[i].innerHTML.replace(' USDT','');
+				}
 			} else if(k<10) {
 			setTimeout(function(){
 				zigAddEURHTML(k+1)
@@ -98,9 +105,7 @@ function zigAddEURHTML(k){
 		case "https://zignaly.com/app/dashboard":
 		case "https://zignaly.com/app/dashboard/":
 			if(document.querySelector('tbody')){
-				console.log(k);
 				tabs=document.querySelector('thead').querySelectorAll('div');
-				console.log(tabs);
 				for(i=1;i<tabs.length;i++){
 					switch(tabs[i].innerHTML){
 						case "MARGIN MODE":
@@ -120,7 +125,7 @@ function zigAddEURHTML(k){
 							aep=1*tabs[i+1].innerHTML.replace(/(<([^>]+)>)/gi, "").substr(5);
 							break;
 						case "MARGIN MODE":
-							tabs[i+1].innerHTML='<span class=gain>'+Math.round(1000*aep*zigTP)/1000+'</span>';
+							tabs[i+1].innerHTML='<span class=gain>'+Math.round(100000*aep*zigTP)/100000+'</span>';
 							break;
 						case "INITIAL AMOUNT":
 							nbr=1*tabs[i+1].innerHTML.substr(tabs[i+1].innerHTML.indexOf('</span>')+7).replace(' ','');
@@ -176,7 +181,6 @@ function zigDashboardTitle(){
 				title+=tabs[i+1].innerHTML+' ';
 				break;
 			case "P/L %":
-				console.log(tabs[i+1]);
 				value=tabs[i+1].getElementsByTagName('span')[0].innerHTML.replace(' ','');
 				title+=value;
 				break;

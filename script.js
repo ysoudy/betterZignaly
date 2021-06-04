@@ -129,7 +129,10 @@ function zigAddEURHTML(k){
 							break;
 						case "INITIAL AMOUNT":
 							nbr=1*tabs[i+1].innerHTML.substr(tabs[i+1].innerHTML.indexOf('</span>')+7).replace(' ','');
-							tabs[i+1].innerHTML='<span class=gain style=color:#03A9F4>'+Math.round(100*(aep*zigTP-aep)*nbr)/100+'</span>';
+							gain_usdt=Math.round(100*(aep*zigTP-aep)*nbr)/100;
+							gain_eur=Math.round(100*gain_usdt*usdt)/100;
+							
+							tabs[i+1].innerHTML=gain_eur+'<b style=font-weight:normal;margin-left:4px;color:#E2AF00>€</b> ~ <font style="font-weight:normal">'+gain_usdt+'</font><b style=font-weight:normal;margin-left:4px;color:#26A17B>Ŧ</b>';
 							break;
 
 					}
